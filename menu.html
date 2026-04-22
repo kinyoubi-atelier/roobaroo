@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Roobaroo · The Menu</title>
+<meta name="description" content="The full menu — Hotel Roobaroo Restaurant, Jeypore. Grills, kebabs, tandoor, Indian, Chinese, biryani, mocktails." />
+
+<!-- Open Graph / social card -->
+<link rel="canonical" href="https://roobaroo.vercel.app/menu" />
+<meta property="og:type" content="restaurant.menu" />
+<meta property="og:site_name" content="Roobaroo Restaurant" />
+<meta property="og:title" content="Roobaroo · The Menu" />
+<meta property="og:description" content="Grills with a memory of fire. Tandoor that never cools. A menu from a garden in Jeypore." />
+<meta property="og:url" content="https://roobaroo.vercel.app/menu" />
+<meta property="og:locale" content="en_IN" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Roobaroo · The Menu" />
+<meta name="twitter:description" content="A menu from a garden in Jeypore. Grills, tandoor, biryani, and small joys in tall glasses." />
+<meta name="theme-color" content="#0b0f0c" />
+<!-- When og-menu.jpg (1200x630) is uploaded to repo root, also add:
+     <meta property="og:image" content="https://roobaroo.vercel.app/og-menu.jpg" />
+     <meta property="og:image:width" content="1200" />
+     <meta property="og:image:height" content="630" />
+     <meta name="twitter:image" content="https://roobaroo.vercel.app/og-menu.jpg" />
+     ...and switch twitter:card to "summary_large_image". -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,200..900,0..100,0..1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Italianno&family=Noto+Serif+Devanagari:wght@300;400;500&family=Noto+Serif+Oriya:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0f0c;--ink-2:#111814;--ink-3:#161e18;
+    --parchment:#f1e7d0;--parchment-2:#e6d9b8;
+    --moss-lift:#55642f;
+    --saffron:#e8873a;--saffron-hi:#f2a55a;
+    --ghost:rgba(241,231,208,0.62);--ghost-2:rgba(241,231,208,0.42);
+    --hairline:rgba(241,231,208,0.22);--hairline-2:rgba(241,231,208,0.12);
+    --display:"Fraunces",serif;--body:"Cormorant Garamond",serif;
+    --script:"Italianno",cursive;--deva:"Noto Serif Devanagari",serif;
+    --odia:"Noto Serif Oriya",serif;
+    --max:980px;--pad:clamp(24px,5vw,72px);--section-y:clamp(60px,9vw,110px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--parchment);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(241,231,208,0.035) 0 1px,transparent 2px),radial-gradient(circle at 70% 80%,rgba(241,231,208,0.025) 0 1px,transparent 2px);background-size:9px 9px,13px 13px;mix-blend-mode:screen;pointer-events:none;z-index:1000;opacity:.7}
+
+  /* NAV */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);transition:background .5s,backdrop-filter .5s,padding .4s}
+  .nav.scrolled{background:rgba(11,15,12,0.8);backdrop-filter:blur(14px) saturate(1.2);padding:12px var(--pad);border-bottom:1px solid var(--hairline-2)}
+  .nav .mark{font-family:var(--display);font-weight:300;font-size:22px;color:var(--parchment);letter-spacing:-0.01em}
+  .nav .mark .o{color:var(--saffron-hi)}
+  .nav .back{font-family:var(--body);font-style:italic;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--ghost);padding:10px 18px;border:1px solid rgba(241,231,208,0.18);transition:all .3s}
+  .nav .back:hover{color:var(--parchment);border-color:var(--saffron)}
+
+  /* HERO */
+  .hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px var(--pad) 70px;border-bottom:1px solid var(--hairline-2)}
+  .hero .rail{display:flex;align-items:center;gap:14px;font-family:var(--body);font-style:italic;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--ghost);margin-bottom:24px}
+  .hero .rail .line{width:50px;height:1px;background:var(--hairline)}
+  .hero .rail .dot{width:6px;height:6px;border-radius:50%;background:var(--saffron);box-shadow:0 0 12px rgba(232,135,58,0.85)}
+  .hero .eyebrow{font-family:var(--body);font-style:italic;font-size:18px;letter-spacing:.32em;text-transform:uppercase;color:var(--moss-lift);margin-bottom:6px}
+  .hero h1{font-family:var(--display);font-weight:300;font-variation-settings:"SOFT" 45,"WONK" 1;font-size:clamp(56px,9vw,108px);line-height:.9;letter-spacing:-0.025em;color:var(--parchment);margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--saffron-hi);font-weight:300}
+  .hero .lede{max-width:50ch;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(17px,1.8vw,21px);line-height:1.6;color:var(--ghost)}
+  .hero .lede em{font-style:normal;color:var(--saffron-hi);font-weight:400}
+  .hero .preview-note{margin-top:30px;padding-top:20px;border-top:1px solid var(--hairline-2);font-family:var(--body);font-style:italic;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ghost-2);max-width:42ch;line-height:1.8}
+  .hero .preview-note em{color:var(--saffron);font-style:italic;letter-spacing:.32em}
+
+  /* SECTION */
+  .container{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:var(--section-y) 0;border-bottom:1px solid var(--hairline-2)}
+  section:last-of-type{border-bottom:none}
+  .sec-head{margin-bottom:48px;text-align:center}
+  .sec-label{font-family:var(--body);font-style:italic;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--saffron);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:14px}
+  .sec-label::before,.sec-label::after{content:"";width:24px;height:1px;background:var(--saffron)}
+  .sec-head h2{font-family:var(--display);font-weight:300;font-variation-settings:"SOFT" 45;font-size:clamp(34px,5vw,52px);color:var(--parchment);margin-bottom:14px;letter-spacing:-0.015em}
+  .sec-head .blurb{font-family:var(--display);font-style:italic;font-weight:300;font-size:16px;color:var(--ghost);max-width:46ch;margin:0 auto}
+
+  /* DISH ITEM (dotted leader style) */
+  .dish{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px dashed rgba(241,231,208,0.07)}
+  .dish:last-child{border-bottom:none}
+  .dish .name{font-family:var(--display);font-weight:300;font-size:19px;color:var(--parchment);letter-spacing:-0.005em;flex-shrink:0}
+  .dish .name em{font-style:italic;color:var(--saffron-hi);font-weight:400;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-left:8px}
+  .dish .desc{font-family:var(--display);font-style:italic;font-weight:300;font-size:14px;color:var(--ghost-2);margin-top:3px}
+  .dish .leader{flex:1;height:1px;border-bottom:1px dotted rgba(241,231,208,0.18);margin-bottom:6px;min-width:30px}
+  .dish .price{font-family:var(--display);font-weight:300;font-size:19px;color:var(--saffron-hi);flex-shrink:0;letter-spacing:.01em}
+  .dish .body{display:flex;flex-direction:column;flex-shrink:0;max-width:60%}
+
+  /* RESERVE STRIP — contact */
+  .reserve-strip{padding:110px 0 90px;text-align:center;border-top:1px solid var(--hairline);margin-top:40px}
+  .reserve-strip .rail{display:flex;align-items:center;justify-content:center;gap:14px;font-family:var(--body);font-style:italic;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ghost);margin-bottom:26px}
+  .reserve-strip .rail .line{width:44px;height:1px;background:var(--hairline)}
+  .reserve-strip .rail .dot{width:4px;height:4px;border-radius:50%;background:var(--saffron);box-shadow:0 0 10px rgba(232,135,58,0.7)}
+  .reserve-strip .verse{font-family:var(--display);font-weight:300;font-variation-settings:"SOFT" 45;font-size:clamp(26px,3.6vw,38px);color:var(--parchment);margin-bottom:38px;letter-spacing:-0.012em;line-height:1.2}
+  .reserve-strip .verse em{font-style:italic;color:var(--saffron-hi);font-weight:300}
+  .reserve-strip .channels{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;max-width:640px;margin:0 auto}
+  .reserve-strip .ch{font-family:var(--body);font-style:italic;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ghost);padding:16px 26px;border:1px solid rgba(241,231,208,0.14);transition:all .4s;display:inline-flex;align-items:center;gap:12px;background:rgba(241,231,208,0.02)}
+  .reserve-strip .ch .v{color:var(--parchment);font-style:normal;letter-spacing:.05em;font-size:13px;font-family:var(--display);font-weight:300}
+  .reserve-strip .ch:hover{color:var(--saffron-hi);border-color:var(--saffron);background:rgba(232,135,58,0.05)}
+  .reserve-strip .ch:hover .v{color:var(--saffron-hi)}
+  .reserve-strip .soft{margin-top:32px;font-family:var(--body);font-style:italic;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ghost-2)}
+  @media(max-width:640px){
+    .reserve-strip{padding:80px 0 60px}
+    .reserve-strip .channels{flex-direction:column;gap:14px;padding:0 var(--pad)}
+    .reserve-strip .ch{justify-content:center;width:100%}
+  }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle{display:flex;gap:4px;align-items:center}
+  .lang-toggle button{background:transparent;border:1px solid var(--hairline-2);color:var(--ghost);font-family:var(--body);font-style:italic;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;cursor:pointer;transition:all .3s;line-height:1}
+  .lang-toggle button:hover{color:var(--parchment);border-color:var(--saffron)}
+  .lang-toggle button.active{color:var(--saffron-hi);border-color:var(--saffron);background:rgba(232,135,58,0.05)}
+  @media(max-width:640px){
+    .lang-toggle button{padding:6px 8px;font-size:10px;letter-spacing:.1em}
+  }
+
+  /* ODIA SCRIPT OVERRIDE */
+  html[lang="or"] body,
+  html[lang="or"] .hero h1,
+  html[lang="or"] .hero h1 em,
+  html[lang="or"] .hero .lede,
+  html[lang="or"] .hero .lede em,
+  html[lang="or"] .hero .eyebrow,
+  html[lang="or"] .hero .rail,
+  html[lang="or"] .hero .preview-note,
+  html[lang="or"] .hero .preview-note em,
+  html[lang="or"] .sec-label,
+  html[lang="or"] .sec-head h2,
+  html[lang="or"] .sec-head h2 em,
+  html[lang="or"] .sec-head .blurb,
+  html[lang="or"] .dish .name,
+  html[lang="or"] .dish .name em,
+  html[lang="or"] .reserve-strip .rail,
+  html[lang="or"] .reserve-strip .verse,
+  html[lang="or"] .reserve-strip .verse em,
+  html[lang="or"] .reserve-strip .ch,
+  html[lang="or"] .reserve-strip .soft,
+  html[lang="or"] .nav .back,
+  html[lang="or"] footer .seal,
+  html[lang="or"] footer .links,
+  html[lang="or"] footer .copy{font-family:var(--odia),var(--display),serif}
+
+  /* FOOTER */
+  footer{padding:60px var(--pad) 80px;text-align:center;border-top:1px solid var(--hairline)}
+  footer .seal{font-family:var(--body);font-style:italic;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ghost);margin-bottom:16px}
+  footer .links{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-weight:300;font-size:17px;color:var(--parchment-2)}
+  footer .links a:hover{color:var(--saffron-hi)}
+  footer .copy{margin-top:30px;font-family:var(--body);font-style:italic;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ghost-2)}
+
+  /* VERCEL FROSTED STICKER */
+  .vercel{position:fixed;bottom:20px;right:20px;z-index:90;padding:10px 14px;background:rgba(241,231,208,0.04);backdrop-filter:blur(20px) saturate(1.5);border:1px solid rgba(241,231,208,0.07);display:flex;align-items:center;gap:10px;text-decoration:none;opacity:.55;transition:all .6s;border-radius:2px}
+  .vercel:hover{opacity:.85;background:rgba(241,231,208,0.08);transform:translateY(-2px)}
+  .vercel svg{width:14px;height:12px;color:var(--parchment);opacity:.7}
+  .vercel .lbl{font-family:var(--body);font-style:italic;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ghost-2);display:block;line-height:1}
+  .vercel .name{font-family:var(--display);font-size:12.5px;color:var(--parchment);opacity:.8;display:block;line-height:1.1}
+  @media(max-width:640px){.vercel{padding:8px 10px}.vercel .lbl{display:none}}
+
+  @media(max-width:640px){
+    .dish{flex-wrap:wrap}
+    .dish .body{max-width:100%}
+    .dish .leader{display:none}
+    .dish .price{margin-left:auto}
+  }
+
+  /* ── Coming Soon Overlay ── */
+  .coming-soon-veil{
+    position:fixed;inset:0;z-index:9999;
+    background:
+      radial-gradient(900px 600px at 50% 30%, rgba(232,135,58,0.08), transparent 60%),
+      linear-gradient(180deg, #0a0d0b 0%, #0d1310 50%, #0a0e0b 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:40px;
+  }
+  .coming-soon-veil .cs-eyebrow{
+    font-family:var(--body);font-style:italic;font-size:12px;
+    letter-spacing:.35em;text-transform:uppercase;color:var(--saffron);
+    margin-bottom:24px;
+  }
+  .coming-soon-veil h1{
+    font-family:var(--display);font-weight:300;
+    font-size:clamp(32px,6vw,56px);line-height:1.15;
+    color:var(--parchment);letter-spacing:-0.02em;
+    max-width:14ch;margin-bottom:28px;
+  }
+  .coming-soon-veil h1 em{font-style:italic;color:var(--saffron-hi)}
+  .coming-soon-veil .cs-verse{
+    font-family:var(--body);font-style:italic;
+    font-size:clamp(14px,2vw,18px);line-height:1.7;
+    color:var(--ghost);max-width:30ch;margin-bottom:40px;
+  }
+  .coming-soon-veil .cs-back{
+    font-family:var(--body);font-style:italic;
+    font-size:14px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--parchment);text-decoration:none;
+    border-bottom:1px solid var(--saffron);
+    padding-bottom:4px;
+    transition:color 0.3s;
+  }
+  .coming-soon-veil .cs-back:hover{color:var(--saffron-hi)}
+  .coming-soon-veil .cs-seal{
+    margin-top:48px;width:56px;height:56px;
+    border:1px solid var(--saffron);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Shippori Mincho",serif;font-weight:700;
+    font-size:30px;color:var(--saffron-hi);
+    transform:rotate(-3deg);
+    background:rgba(232,135,58,0.04);
+    box-shadow:inset 0 0 18px rgba(232,135,58,0.08), 0 0 16px rgba(232,135,58,0.12);
+  }
+</style>
+</head>
+<body>
+<!-- COMING SOON OVERLAY — remove this block when menu is ready to go live -->
+<div class="coming-soon-veil">
+  <div class="cs-eyebrow">— the menu —</div>
+  <h1>The kitchen is still<br/><em>composing.</em></h1>
+  <p class="cs-verse">Some recipes refuse to be rushed.<br/>The chef is writing the last verse —<br/>come back when the lanterns have<br/>had a word with the tandoor.</p>
+  <a href="/" class="cs-back">← return to the garden</a>
+  <div class="cs-seal">静</div>
+</div>
+
+
+<nav class="nav" id="nav">
+  <a href="/" class="mark">R<span class="o">oo</span>baroo</a>
+  <div class="lang-toggle" role="group" aria-label="language">
+    <button type="button" data-lang="en" onclick="setLang('en')" class="active">EN</button>
+    <button type="button" data-lang="hi" onclick="setLang('hi')">हिं</button>
+    <button type="button" data-lang="or" onclick="setLang('or')">ଓ</button>
+  </div>
+  <a href="/" class="back" data-i18n="nav.back">← back to garden</a>
+</nav>
+
+<header class="hero">
+  <div class="rail"><span class="line"></span><span class="dot"></span><span data-i18n="hero.rail">the art of quiet</span><span class="dot"></span><span class="line"></span></div>
+  <div class="eyebrow" data-i18n="hero.eyebrow">— The Menu —</div>
+  <h1 data-i18n="hero.h1">What the<br/><em>kitchen offers.</em></h1>
+  <p class="lede" data-i18n="hero.lede">Grills with a memory of fire. Tandoor that never cools. Noodles tossed at high flame, biryani sealed with dough, dal that takes its time. Nothing loud — <em>everything honest</em>.</p>
+  <p class="preview-note" data-i18n="hero.preview">— a <em>working preview</em> · dishes and prices await the chef's final word —</p>
+</header>
+
+<div class="container">
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec1.label">— Beginnings —</div><h2 data-i18n="sec1.h2">Soups, salads, small bites</h2><p class="blurb" data-i18n="sec1.blurb">Where every evening starts. Order one to share, two if the table is patient.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s1.i1">Tomato &amp; Basil Soup</div><div class="desc">Slow-roasted, hand-blended, finished with a swirl of cream</div></div><div class="leader"></div><div class="price">₹140</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s1.i2">Sweet Corn Soup <em>veg / chicken</em></div><div class="desc">Garden corn, ginger, white pepper</div></div><div class="leader"></div><div class="price">₹160 / ₹190</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s1.i3">Garden Salad</div><div class="desc">Cucumber, tomato, onion, lemon, the chef's house dressing</div></div><div class="leader"></div><div class="price">₹120</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s1.i4">Roasted Papad Platter</div><div class="desc">Three kinds, served with mint and tamarind</div></div><div class="leader"></div><div class="price">₹90</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s1.i5">Veg Spring Roll</div><div class="desc">Crisp wrap, julienned vegetables, schezwan dip</div></div><div class="leader"></div><div class="price">₹180</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec2.label">— From the Tandoor —</div><h2 data-i18n="sec2.h2">Grills &amp; <em>kebabs</em></h2><p class="blurb" data-i18n="sec2.blurb">Marinades that rest overnight. Skewers turned by hand. The clay oven never quite cools.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i1">Tandoori Chicken <em>half / full</em></div><div class="desc">Yogurt, ginger, the chef's spice memory</div></div><div class="leader"></div><div class="price">₹260 / ₹460</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i2">Murg Malai Tikka</div><div class="desc">Cream, cardamom, charcoal — soft as evening</div></div><div class="leader"></div><div class="price">₹290</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i3">Chicken Seekh Kebab</div><div class="desc">Hand-minced, coal-kissed, served with lime and onion</div></div><div class="leader"></div><div class="price">₹280</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i4">Mutton Seekh Kebab</div><div class="desc">A small ceremony on a plate</div></div><div class="leader"></div><div class="price">₹340</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i5">Paneer Tikka</div><div class="desc">Cottage cheese, bell peppers, slow char</div></div><div class="leader"></div><div class="price">₹260</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s2.i6">Hariyali Kebab <em>veg</em></div><div class="desc">Spinach, mint, coriander — green and earthy</div></div><div class="leader"></div><div class="price">₹240</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec3.label">— Indian Mains —</div><h2 data-i18n="sec3.h2">Curries that<br/><em>take their time</em></h2><p class="blurb" data-i18n="sec3.blurb">Some dishes are quick. These are not. Tempered twice, simmered once, finished with a slow hand.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i1">Butter Chicken</div><div class="desc">Tomato, butter, fenugreek — the classic, made carefully</div></div><div class="leader"></div><div class="price">₹340</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i2">Chicken Curry, Home Style</div><div class="desc">Onion-tomato base, the way grandmothers make it</div></div><div class="leader"></div><div class="price">₹320</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i3">Mutton Rogan Josh</div><div class="desc">Kashmiri red, slow-cooked until the meat falls apart</div></div><div class="leader"></div><div class="price">₹420</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i4">Paneer Butter Masala</div><div class="desc">Soft cheese, cashew gravy, a finishing curl of cream</div></div><div class="leader"></div><div class="price">₹290</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i5">Dal Makhani</div><div class="desc">Black lentils, cooked overnight, tempered twice</div></div><div class="leader"></div><div class="price">₹240</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i6">Dal Tadka</div><div class="desc">The simplest thing on the menu, which is why we guard it most</div></div><div class="leader"></div><div class="price">₹180</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s3.i7">Mixed Vegetable</div><div class="desc">Garden vegetables, spice as the cook decides</div></div><div class="leader"></div><div class="price">₹220</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec4.label">— Chinese —</div><h2 data-i18n="sec4.h2">Wok-tossed,<br/><em>high flame</em></h2><p class="blurb" data-i18n="sec4.blurb">Fast hands, hot iron, the smoke you only get from a wok that's been used for years.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i1">Hakka Noodles <em>veg / chicken / mixed</em></div><div class="desc">Crisp, chewy, true</div></div><div class="leader"></div><div class="price">₹180 / ₹220 / ₹260</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i2">Schezwan Noodles</div><div class="desc">Red and bright, with a slow-burning heat</div></div><div class="leader"></div><div class="price">₹220</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i3">Chilli Chicken <em>dry / gravy</em></div><div class="desc">Indo-Chinese done right — nothing apologetic</div></div><div class="leader"></div><div class="price">₹290</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i4">Chilli Paneer</div><div class="desc">Soft cubes, soy, spring onion, finished with sesame</div></div><div class="leader"></div><div class="price">₹260</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i5">Veg Manchurian <em>dry / gravy</em></div><div class="desc">Hand-rolled, tossed in a sauce with secrets</div></div><div class="leader"></div><div class="price">₹220</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s4.i6">Veg Fried Rice</div><div class="desc">Garden vegetables, soy, the wok's smoke</div></div><div class="leader"></div><div class="price">₹190</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec5.label">— Biryani &amp; Rice —</div><h2 data-i18n="sec5.h2">Rice steamed with its <em>own patience</em></h2><p class="blurb" data-i18n="sec5.blurb">Saffron, a secret, and the lid sealed with dough until the table asks for it.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s5.i1">Hyderabadi Chicken Dum Biryani</div><div class="desc">Long-grain rice, marinated chicken, sealed and slow-cooked</div></div><div class="leader"></div><div class="price">₹340</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s5.i2">Mutton Dum Biryani</div><div class="desc">A meal that justifies the wait</div></div><div class="leader"></div><div class="price">₹420</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s5.i3">Veg Dum Biryani</div><div class="desc">Vegetables, basmati, mint, fried onion</div></div><div class="leader"></div><div class="price">₹260</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s5.i4">Jeera Rice</div><div class="desc">Cumin, ghee, basmati — the side that quietly carries the meal</div></div><div class="leader"></div><div class="price">₹160</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s5.i5">Steamed Rice</div><div class="desc">Plain, perfect</div></div><div class="leader"></div><div class="price">₹120</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec6.label">— Breads —</div><h2 data-i18n="sec6.h2">Straight from the <em>clay oven</em></h2><p class="blurb" data-i18n="sec6.blurb">Made to order. Made to scoop. Made to fold around the bite you don't want to share.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s6.i1">Tandoori Roti</div><div class="desc">Whole wheat, blistered on the clay</div></div><div class="leader"></div><div class="price">₹30</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s6.i2">Butter Naan</div><div class="desc">Soft, generous, brushed with butter</div></div><div class="leader"></div><div class="price">₹50</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s6.i3">Garlic Naan</div><div class="desc">Crushed garlic, fresh coriander, charcoal char</div></div><div class="leader"></div><div class="price">₹70</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s6.i4">Lachha Paratha</div><div class="desc">Layered, flaky, the kind you tear with your hands</div></div><div class="leader"></div><div class="price">₹60</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s6.i5">Stuffed Kulcha <em>aloo / paneer</em></div><div class="desc">Filled, sealed, baked, served with butter</div></div><div class="leader"></div><div class="price">₹90</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec7.label">— Mocktails &amp; Milkshakes —</div><h2 data-i18n="sec7.h2">Small joys in <em>tall glasses</em></h2><p class="blurb" data-i18n="sec7.blurb">Fresh fruit, fresh mint, fresh ice. Nothing from a can if we can help it.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i1">The Garden Mocktail <em>house</em></div><div class="desc">Mint, citrus, a whisper of something unexpected</div></div><div class="leader"></div><div class="price">₹160</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i2">Virgin Mojito</div><div class="desc">Fresh mint, lime, soda — sharp and clean</div></div><div class="leader"></div><div class="price">₹140</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i3">Watermelon Cooler</div><div class="desc">Crushed melon, lime, a pinch of black salt</div></div><div class="leader"></div><div class="price">₹140</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i4">Mango Milkshake <em>seasonal</em></div><div class="desc">Hand-pulped, no syrups, served thick</div></div><div class="leader"></div><div class="price">₹160</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i5">Chocolate Milkshake</div><div class="desc">Dark cocoa, cold milk, a generous scoop</div></div><div class="leader"></div><div class="price">₹170</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s7.i6">Cold Coffee</div><div class="desc">Slow-brewed, blended cold, crowned with cream</div></div><div class="leader"></div><div class="price">₹150</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="sec-label" data-i18n="sec8.label">— Desserts —</div><h2 data-i18n="sec8.h2">One last <em>sweetness</em></h2><p class="blurb" data-i18n="sec8.blurb">The reason to stay for the encore.</p></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s8.i1">Gulab Jamun <em>2 pcs</em></div><div class="desc">Warm, soaked, served with vanilla ice cream</div></div><div class="leader"></div><div class="price">₹120</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s8.i2">Vanilla Ice Cream</div><div class="desc">Two scoops, plain, perfect</div></div><div class="leader"></div><div class="price">₹90</div></div>
+    <div class="dish"><div class="body"><div class="name" data-i18n="d.s8.i3">Chocolate Brownie with Ice Cream</div><div class="desc">Warm brownie, cold scoop, the only correct combination</div></div><div class="leader"></div><div class="price">₹180</div></div>
+  </section>
+
+  <section class="reserve-strip">
+    <div class="rail"><span class="line"></span><span class="dot"></span><span data-i18n="reserve.rail">seen something you'd like to taste?</span><span class="dot"></span><span class="line"></span></div>
+    <div class="verse" data-i18n="reserve.verse">Reserve a quiet table,<br/><em>or message us directly.</em></div>
+    <div class="channels">
+      <a class="ch" href="https://wa.me/918142423488?text=Hi%20Roobaroo%2C%20I%27d%20like%20to%20reserve%20a%20table." target="_blank" rel="noopener"><span data-i18n="reserve.wa">— WhatsApp —</span><span class="v">+91 81424 23488</span></a>
+      <a class="ch" href="https://instagram.com/roobaroojeypore" target="_blank" rel="noopener"><span data-i18n="reserve.ig">— Instagram —</span><span class="v">@roobaroojeypore</span></a>
+    </div>
+    <div class="soft" data-i18n="reserve.soft">— or call +91 63701 95759 —</div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="seal" data-i18n="footer.seal">— roobaroo · an evening worth remembering —</div>
+  <div class="links">
+    <a href="/" data-i18n="footer.back">← back to garden</a>
+    <a href="/#reserve" data-i18n="footer.reserve">reserve a table →</a>
+  </div>
+  <div class="copy" data-i18n="footer.copy">© Roobaroo Restaurant · Jeypore · Koraput · Odisha · all prices in ₹ inclusive of taxes · subject to availability</div>
+</footer>
+
+<a class="vercel" href="https://vercel.com" target="_blank" rel="noopener" aria-label="Hosted on Vercel">
+  <svg viewBox="0 0 76 65" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M37.5274 0L75.0548 65H0L37.5274 0Z"/></svg>
+  <div><span class="lbl">hosted on</span><span class="name">Vercel</span></div>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+
+  /* ---- trilingual i18n ---- */
+  const translations = {
+    en: {
+      "nav.back": "← back to garden",
+      "hero.rail": "the art of quiet",
+      "hero.eyebrow": "— The Menu —",
+      "hero.h1": "What the<br/><em>kitchen offers.</em>",
+      "hero.lede": "Grills with a memory of fire. Tandoor that never cools. Noodles tossed at high flame, biryani sealed with dough, dal that takes its time. Nothing loud — <em>everything honest</em>.",
+      "hero.preview": "— a <em>working preview</em> · dishes and prices await the chef's final word —",
+      "sec1.label": "— Beginnings —",
+      "sec1.h2": "Soups, salads, small bites",
+      "sec1.blurb": "Where every evening starts. Order one to share, two if the table is patient.",
+      "sec2.label": "— From the Tandoor —",
+      "sec2.h2": "Grills &amp; <em>kebabs</em>",
+      "sec2.blurb": "Marinades that rest overnight. Skewers turned by hand. The clay oven never quite cools.",
+      "sec3.label": "— Indian Mains —",
+      "sec3.h2": "Curries that<br/><em>take their time</em>",
+      "sec3.blurb": "Some dishes are quick. These are not. Tempered twice, simmered once, finished with a slow hand.",
+      "sec4.label": "— Chinese —",
+      "sec4.h2": "Wok-tossed,<br/><em>high flame</em>",
+      "sec4.blurb": "Fast hands, hot iron, the smoke you only get from a wok that's been used for years.",
+      "sec5.label": "— Biryani &amp; Rice —",
+      "sec5.h2": "Rice steamed with its <em>own patience</em>",
+      "sec5.blurb": "Saffron, a secret, and the lid sealed with dough until the table asks for it.",
+      "sec6.label": "— Breads —",
+      "sec6.h2": "Straight from the <em>clay oven</em>",
+      "sec6.blurb": "Made to order. Made to scoop. Made to fold around the bite you don't want to share.",
+      "sec7.label": "— Mocktails &amp; Milkshakes —",
+      "sec7.h2": "Small joys in <em>tall glasses</em>",
+      "sec7.blurb": "Fresh fruit, fresh mint, fresh ice. Nothing from a can if we can help it.",
+      "sec8.label": "— Desserts —",
+      "sec8.h2": "One last <em>sweetness</em>",
+      "sec8.blurb": "The reason to stay for the encore.",
+      "d.s1.i1": "Tomato &amp; Basil Soup",
+      "d.s1.i2": "Sweet Corn Soup <em>veg / chicken</em>",
+      "d.s1.i3": "Garden Salad",
+      "d.s1.i4": "Roasted Papad Platter",
+      "d.s1.i5": "Veg Spring Roll",
+      "d.s2.i1": "Tandoori Chicken <em>half / full</em>",
+      "d.s2.i2": "Murg Malai Tikka",
+      "d.s2.i3": "Chicken Seekh Kebab",
+      "d.s2.i4": "Mutton Seekh Kebab",
+      "d.s2.i5": "Paneer Tikka",
+      "d.s2.i6": "Hariyali Kebab <em>veg</em>",
+      "d.s3.i1": "Butter Chicken",
+      "d.s3.i2": "Chicken Curry, Home Style",
+      "d.s3.i3": "Mutton Rogan Josh",
+      "d.s3.i4": "Paneer Butter Masala",
+      "d.s3.i5": "Dal Makhani",
+      "d.s3.i6": "Dal Tadka",
+      "d.s3.i7": "Mixed Vegetable",
+      "d.s4.i1": "Hakka Noodles <em>veg / chicken / mixed</em>",
+      "d.s4.i2": "Schezwan Noodles",
+      "d.s4.i3": "Chilli Chicken <em>dry / gravy</em>",
+      "d.s4.i4": "Chilli Paneer",
+      "d.s4.i5": "Veg Manchurian <em>dry / gravy</em>",
+      "d.s4.i6": "Veg Fried Rice",
+      "d.s5.i1": "Hyderabadi Chicken Dum Biryani",
+      "d.s5.i2": "Mutton Dum Biryani",
+      "d.s5.i3": "Veg Dum Biryani",
+      "d.s5.i4": "Jeera Rice",
+      "d.s5.i5": "Steamed Rice",
+      "d.s6.i1": "Tandoori Roti",
+      "d.s6.i2": "Butter Naan",
+      "d.s6.i3": "Garlic Naan",
+      "d.s6.i4": "Lachha Paratha",
+      "d.s6.i5": "Stuffed Kulcha <em>aloo / paneer</em>",
+      "d.s7.i1": "The Garden Mocktail <em>house</em>",
+      "d.s7.i2": "Virgin Mojito",
+      "d.s7.i3": "Watermelon Cooler",
+      "d.s7.i4": "Mango Milkshake <em>seasonal</em>",
+      "d.s7.i5": "Chocolate Milkshake",
+      "d.s7.i6": "Cold Coffee",
+      "d.s8.i1": "Gulab Jamun <em>2 pcs</em>",
+      "d.s8.i2": "Vanilla Ice Cream",
+      "d.s8.i3": "Chocolate Brownie with Ice Cream",
+      "reserve.rail": "seen something you'd like to taste?",
+      "reserve.verse": "Reserve a quiet table,<br/><em>or message us directly.</em>",
+      "reserve.wa": "— WhatsApp —",
+      "reserve.ig": "— Instagram —",
+      "reserve.soft": "— or call +91 63701 95759 —",
+      "footer.seal": "— roobaroo · an evening worth remembering —",
+      "footer.back": "← back to garden",
+      "footer.reserve": "reserve a table →",
+      "footer.copy": "© Roobaroo Restaurant · Jeypore · Koraput · Odisha · all prices in ₹ inclusive of taxes · subject to availability"
+    },
+    hi: {
+      "nav.back": "← बग़ीचे की ओर",
+      "hero.rail": "ख़ामोशी की कला",
+      "hero.eyebrow": "— मेन्यू —",
+      "hero.h1": "रसोई<br/><em>क्या परोसती है।</em>",
+      "hero.lede": "आग की याद लिए ग्रिल। तंदूर जो कभी ठंडा नहीं होता। तेज़ आंच पर नूडल्स, आटे से सीलबंद बिरयानी, धीमी आंच की दाल। कुछ भी शोर नहीं — <em>सब कुछ ईमानदार</em>।",
+      "hero.preview": "— एक <em>कार्यशील झलक</em> · पकवान और दाम शेफ़ के अंतिम शब्द की प्रतीक्षा में —",
+      "sec1.label": "— शुरुआत —",
+      "sec1.h2": "सूप, सलाद, छोटी चखाइयाँ",
+      "sec1.blurb": "जहाँ हर शाम शुरू होती है। एक साझा करने को, दो अगर मेज़ धैर्यवान हो।",
+      "sec2.label": "— तंदूर से —",
+      "sec2.h2": "ग्रिल व <em>कबाब</em>",
+      "sec2.blurb": "रातभर आराम करते मसाले। हाथ से घूमते सीख़। मिट्टी का तंदूर कभी ठंडा नहीं होता।",
+      "sec3.label": "— भारतीय मुख्य —",
+      "sec3.h2": "करी जो<br/><em>अपना समय लेती हैं</em>",
+      "sec3.blurb": "कुछ पकवान जल्दी बनते हैं। ये नहीं। दो बार तड़के, एक बार धीमे, धीमे हाथ से ख़त्म।",
+      "sec4.label": "— चाइनीज़ —",
+      "sec4.h2": "वॉक में उछली,<br/><em>तेज़ आंच</em>",
+      "sec4.blurb": "तेज़ हाथ, गरम लोहा, वह धुआँ जो सालों से इस्तेमाल हुए वॉक से ही आता है।",
+      "sec5.label": "— बिरयानी व चावल —",
+      "sec5.h2": "चावल जो अपनी <em>धैर्य से पकता है</em>",
+      "sec5.blurb": "केसर, एक रहस्य, और आटे से सील ढक्कन — जब तक मेज़ माँगे नहीं।",
+      "sec6.label": "— रोटियाँ —",
+      "sec6.h2": "सीधे <em>मिट्टी के तंदूर से</em>",
+      "sec6.blurb": "ऑर्डर पर बनी। उठाने के लिए बनी। उस निवाले को समेटने को बनी जिसे आप बाँटना नहीं चाहते।",
+      "sec7.label": "— मॉकटेल व मिल्कशेक —",
+      "sec7.h2": "छोटी खुशियाँ <em>ऊँचे गिलासों में</em>",
+      "sec7.blurb": "ताज़ा फल, ताज़ा पुदीना, ताज़ी बर्फ़। जहाँ तक हो, डिब्बे से कुछ नहीं।",
+      "sec8.label": "— मिठाइयाँ —",
+      "sec8.h2": "एक आख़िरी <em>मिठास</em>",
+      "sec8.blurb": "रुकने की वजह, एक और बार के लिए।",
+      "d.s1.i1": "टमाटर व तुलसी सूप",
+      "d.s1.i2": "स्वीट कॉर्न सूप <em>वेज / चिकन</em>",
+      "d.s1.i3": "गार्डन सलाद",
+      "d.s1.i4": "भुना पापड़ थाली",
+      "d.s1.i5": "वेज स्प्रिंग रोल",
+      "d.s2.i1": "तंदूरी चिकन <em>आधा / पूरा</em>",
+      "d.s2.i2": "मुर्ग मलाई टिक्का",
+      "d.s2.i3": "चिकन सीख़ कबाब",
+      "d.s2.i4": "मटन सीख़ कबाब",
+      "d.s2.i5": "पनीर टिक्का",
+      "d.s2.i6": "हरियाली कबाब <em>वेज</em>",
+      "d.s3.i1": "बटर चिकन",
+      "d.s3.i2": "चिकन करी, घरेलू शैली",
+      "d.s3.i3": "मटन रोगन जोश",
+      "d.s3.i4": "पनीर बटर मसाला",
+      "d.s3.i5": "दाल मखनी",
+      "d.s3.i6": "दाल तड़का",
+      "d.s3.i7": "मिक्स सब्ज़ी",
+      "d.s4.i1": "हक्का नूडल्स <em>वेज / चिकन / मिक्स</em>",
+      "d.s4.i2": "शेज़वान नूडल्स",
+      "d.s4.i3": "चिल्ली चिकन <em>सूखा / ग्रेवी</em>",
+      "d.s4.i4": "चिल्ली पनीर",
+      "d.s4.i5": "वेज मंचूरियन <em>सूखा / ग्रेवी</em>",
+      "d.s4.i6": "वेज फ्राइड राइस",
+      "d.s5.i1": "हैदराबादी चिकन दम बिरयानी",
+      "d.s5.i2": "मटन दम बिरयानी",
+      "d.s5.i3": "वेज दम बिरयानी",
+      "d.s5.i4": "जीरा राइस",
+      "d.s5.i5": "स्टीम्ड राइस",
+      "d.s6.i1": "तंदूरी रोटी",
+      "d.s6.i2": "बटर नान",
+      "d.s6.i3": "गार्लिक नान",
+      "d.s6.i4": "लच्छा पराठा",
+      "d.s6.i5": "भरवाँ कुलचा <em>आलू / पनीर</em>",
+      "d.s7.i1": "गार्डन मॉकटेल <em>हाउस</em>",
+      "d.s7.i2": "वर्जिन मोहितो",
+      "d.s7.i3": "तरबूज़ कूलर",
+      "d.s7.i4": "आम मिल्कशेक <em>मौसमी</em>",
+      "d.s7.i5": "चॉकलेट मिल्कशेक",
+      "d.s7.i6": "कोल्ड कॉफ़ी",
+      "d.s8.i1": "गुलाब जामुन <em>2 नग</em>",
+      "d.s8.i2": "वनीला आइसक्रीम",
+      "d.s8.i3": "चॉकलेट ब्राउनी आइसक्रीम के साथ",
+      "reserve.rail": "कुछ चखने का मन हुआ?",
+      "reserve.verse": "एक शांत मेज़ आरक्षित करें,<br/><em>या हमें सीधा संदेश भेजें।</em>",
+      "reserve.wa": "— व्हाट्सएप्प —",
+      "reserve.ig": "— इंस्टाग्राम —",
+      "reserve.soft": "— या कॉल करें +91 63701 95759 —",
+      "footer.seal": "— रूबरू · याद रखने लायक एक शाम —",
+      "footer.back": "← बग़ीचे की ओर",
+      "footer.reserve": "मेज़ आरक्षित करें →",
+      "footer.copy": "© रूबरू रेस्तराँ · जयपोर · कोरापुट · ओड़िशा · सभी मूल्य ₹ में, करों सहित · उपलब्धता के अधीन"
+    },
+    or: {
+      "nav.back": "← ବଗିଚାକୁ ଫେରନ୍ତୁ",
+      "hero.rail": "ନୀରବତାର କଳା",
+      "hero.eyebrow": "— ମେନୁ —",
+      "hero.h1": "ରୋଷେଇ<br/><em>କ'ଣ ପରିବେଷଣ କରେ।</em>",
+      "hero.lede": "ଅଗ୍ନିର ସ୍ମୃତି ସହ ଗ୍ରିଲ୍‌। ତନ୍ଦୁର ଯାହା କେବେ ଥଣ୍ଡା ହୁଏ ନାହିଁ। ଉଚ୍ଚ ଅଗ୍ନିରେ ନୁଡଲ୍‌, ଅଟାରେ ସିଲ୍‌ କରା ବିରିୟାନୀ, ସମୟ ନେଉଥିବା ଡାଲି। କିଛି ଶୋର ନୁହେଁ — <em>ସବୁ ଇମାନଦାର</em>।",
+      "hero.preview": "— ଏକ <em>କାର୍ଯ୍ୟକାରୀ ପ୍ରିଭ୍ୟୁ</em> · ଖାଦ୍ୟ ଓ ମୂଲ୍ୟ ଶେଫ୍‌ଙ୍କ ଅନ୍ତିମ ଶବ୍ଦର ଅପେକ୍ଷାରେ —",
+      "sec1.label": "— ଆରମ୍ଭ —",
+      "sec1.h2": "ସୁପ୍, ସାଲାଡ୍, ଛୋଟ ଚାଖଣା",
+      "sec1.blurb": "ଯେଉଁଠୁ ପ୍ରତ୍ୟେକ ସନ୍ଧ୍ୟା ଆରମ୍ଭ ହୁଏ। ଗୋଟିଏ ଅଂଶୀଦାର କରିବାକୁ, ଦୁଇଟି ଯଦି ଟେବୁଲ୍ ଧୈର୍ଯ୍ୟବାନ୍।",
+      "sec2.label": "— ତନ୍ଦୁରରୁ —",
+      "sec2.h2": "ଗ୍ରିଲ୍ ଓ <em>କବାବ୍</em>",
+      "sec2.blurb": "ରାତିସାରା ଆରାମ କରୁଥିବା ମସଲା। ହାତରେ ଘୂରାଯାଉଥିବା ଶିକ। ମାଟି ତନ୍ଦୁର କେବେ ଥଣ୍ଡା ହୁଏ ନାହିଁ।",
+      "sec3.label": "— ଭାରତୀୟ ମୁଖ୍ୟ —",
+      "sec3.h2": "କରି ଯାହା<br/><em>ନିଜ ସମୟ ନିଅନ୍ତି</em>",
+      "sec3.blurb": "କିଛି ଖାଦ୍ୟ ଶୀଘ୍ର ହୁଏ। ଏଗୁଡ଼ିକ ନୁହେଁ। ଦୁଇଥର ଛୁଙ୍କ, ଥରେ ଧୀରେ, ଧୀର ହାତରେ ଶେଷ।",
+      "sec4.label": "— ଚାଇନିଜ୍ —",
+      "sec4.h2": "ୱକ୍‌ରେ ଉଛଳା,<br/><em>ଉଚ୍ଚ ଅଗ୍ନି</em>",
+      "sec4.blurb": "ଦ୍ରୁତ ହାତ, ଗରମ ଲୁହା, ସେହି ଧୂଆଁ ଯାହା ବର୍ଷ ବର୍ଷ ବ୍ୟବହୃତ ୱକ୍‌ରୁ ମିଳେ।",
+      "sec5.label": "— ବିରିୟାନୀ ଓ ଚାଉଳ —",
+      "sec5.h2": "ଚାଉଳ ଯାହା ନିଜ <em>ଧୈର୍ଯ୍ୟରେ ରନ୍ଧା</em>",
+      "sec5.blurb": "କେଶର, ଏକ ରହସ୍ୟ, ଏବଂ ଅଟାରେ ସିଲ୍ ଢାଙ୍କୁଣି — ଯେତେବେଳେ ଟେବୁଲ୍ ମାଗେ ନାହିଁ।",
+      "sec6.label": "— ରୁଟି —",
+      "sec6.h2": "ସିଧା <em>ମାଟି ତନ୍ଦୁରରୁ</em>",
+      "sec6.blurb": "ଅର୍ଡର ଉପରେ ପ୍ରସ୍ତୁତ। ଉଠାଇବାକୁ ପ୍ରସ୍ତୁତ। ସେହି ଖଣ୍ଡକୁ ଘୋଡ଼ାଇବାକୁ ଯାହାକୁ ଆପଣ ବାଣ୍ଟିବାକୁ ଚାହାନ୍ତି ନାହିଁ।",
+      "sec7.label": "— ମକ୍‌ଟେଲ୍ ଓ ମିଲ୍କସେକ୍ —",
+      "sec7.h2": "ଛୋଟ ଆନନ୍ଦ <em>ଉଚ୍ଚ ଗ୍ଲାସରେ</em>",
+      "sec7.blurb": "ତାଜା ଫଳ, ତାଜା ପୋଦିନା, ତାଜା ବରଫ। ଯେତେ ସମ୍ଭବ, କ୍ୟାନ୍‌ରୁ କିଛି ନୁହେଁ।",
+      "sec8.label": "— ମିଠା —",
+      "sec8.h2": "ଗୋଟିଏ ଶେଷ <em>ମିଠା</em>",
+      "sec8.blurb": "ଆଉଥରେ ପାଇଁ ରହିବାର କାରଣ।",
+      "d.s1.i1": "ଟୋମାଟୋ ଓ ତୁଳସୀ ସୁପ୍",
+      "d.s1.i2": "ମିଠା ମକା ସୁପ୍ <em>ଭେଜ୍ / ଚିକେନ୍</em>",
+      "d.s1.i3": "ଉଦ୍ୟାନ ସାଲାଡ୍",
+      "d.s1.i4": "ଭଜା ପାପଡ଼ ଥାଳି",
+      "d.s1.i5": "ଭେଜ୍ ସ୍ପ୍ରିଙ୍ଗ୍ ରୋଲ୍",
+      "d.s2.i1": "ତନ୍ଦୁରୀ ଚିକେନ୍ <em>ଅଧା / ପୂରା</em>",
+      "d.s2.i2": "ମୁର୍ଗ ମଲାଇ ଟିକ୍କା",
+      "d.s2.i3": "ଚିକେନ୍ ସିଖ୍ କବାବ୍",
+      "d.s2.i4": "ମଟନ୍ ସିଖ୍ କବାବ୍",
+      "d.s2.i5": "ପନୀର ଟିକ୍କା",
+      "d.s2.i6": "ହରିୟାଲି କବାବ୍ <em>ଭେଜ୍</em>",
+      "d.s3.i1": "ବଟର୍ ଚିକେନ୍",
+      "d.s3.i2": "ଚିକେନ୍ କରି, ଘରୋଇ ଶୈଳୀ",
+      "d.s3.i3": "ମଟନ୍ ରୋଗନ୍ ଜୋଶ୍",
+      "d.s3.i4": "ପନୀର ବଟର୍ ମସଲା",
+      "d.s3.i5": "ଡାଲ୍ ମଖନୀ",
+      "d.s3.i6": "ଡାଲ୍ ତଡ଼କା",
+      "d.s3.i7": "ମିକ୍ସ ପରିବା",
+      "d.s4.i1": "ହକ୍କା ନୁଡଲ୍ସ <em>ଭେଜ୍ / ଚିକେନ୍ / ମିକ୍ସ</em>",
+      "d.s4.i2": "ଶେଜୱାନ୍ ନୁଡଲ୍ସ",
+      "d.s4.i3": "ଚିଲ୍ଲି ଚିକେନ୍ <em>ଶୁଖିଲା / ଝୋଳ</em>",
+      "d.s4.i4": "ଚିଲ୍ଲି ପନୀର",
+      "d.s4.i5": "ଭେଜ୍ ମଞ୍ଚୁରିଆନ୍ <em>ଶୁଖିଲା / ଝୋଳ</em>",
+      "d.s4.i6": "ଭେଜ୍ ଫ୍ରାଏଡ୍ ରାଇସ୍",
+      "d.s5.i1": "ହାଇଦ୍ରାବାଦୀ ଚିକେନ୍ ଦମ୍ ବିରିୟାନୀ",
+      "d.s5.i2": "ମଟନ୍ ଦମ୍ ବିରିୟାନୀ",
+      "d.s5.i3": "ଭେଜ୍ ଦମ୍ ବିରିୟାନୀ",
+      "d.s5.i4": "ଜିରା ରାଇସ୍",
+      "d.s5.i5": "ଷ୍ଟିମ୍ଡ ରାଇସ୍",
+      "d.s6.i1": "ତନ୍ଦୁରୀ ରୋଟି",
+      "d.s6.i2": "ବଟର୍ ନାନ୍",
+      "d.s6.i3": "ଗାର୍ଲିକ୍ ନାନ୍",
+      "d.s6.i4": "ଲଚ୍ଛା ପରଟା",
+      "d.s6.i5": "ଭରା କୁଲଚା <em>ଆଳୁ / ପନୀର</em>",
+      "d.s7.i1": "ଉଦ୍ୟାନ ମକ୍‌ଟେଲ୍ <em>ହାଉସ୍</em>",
+      "d.s7.i2": "ଭର୍ଜିନ୍ ମୋହିତୋ",
+      "d.s7.i3": "ତରଭୁଜ କୁଲର୍",
+      "d.s7.i4": "ଆମ୍ବ ମିଲ୍କସେକ୍ <em>ମୌସୁମୀ</em>",
+      "d.s7.i5": "ଚକୋଲେଟ୍ ମିଲ୍କସେକ୍",
+      "d.s7.i6": "କୋଲ୍ଡ କଫି",
+      "d.s8.i1": "ଗୁଲାବ ଜାମୁନ <em>୨ ଖଣ୍ଡ</em>",
+      "d.s8.i2": "ଭାନିଲା ଆଇସ୍‌କ୍ରିମ୍",
+      "d.s8.i3": "ଆଇସ୍‌କ୍ରିମ୍ ସହିତ ଚକୋଲେଟ୍ ବ୍ରାଉନି",
+      "reserve.rail": "କିଛି ଚାଖିବାକୁ ଇଚ୍ଛା ହେଲାକି?",
+      "reserve.verse": "ଏକ ନିରବ ଟେବୁଲ୍ ରିଜର୍ଭ କରନ୍ତୁ,<br/><em>କିମ୍ବା ଆମକୁ ସିଧା ସନ୍ଦେଶ ପଠାନ୍ତୁ।</em>",
+      "reserve.wa": "— ହ୍ୱାଟ୍ସଆପ୍ —",
+      "reserve.ig": "— ଇନ୍ସ୍ଟାଗ୍ରାମ —",
+      "reserve.soft": "— କିମ୍ବା କଲ୍ କରନ୍ତୁ +91 63701 95759 —",
+      "footer.seal": "— ରୁବରୁ · ମନେ ରଖିବା ଯୋଗ୍ୟ ଏକ ସନ୍ଧ୍ୟା —",
+      "footer.back": "← ବଗିଚାକୁ ଫେରନ୍ତୁ",
+      "footer.reserve": "ଟେବୁଲ୍ ରିଜର୍ଭ କରନ୍ତୁ →",
+      "footer.copy": "© ରୁବରୁ ରେସ୍ତୁରାଁ · ଜୟପୁର · କୋରାପୁଟ · ଓଡ଼ିଶା · ସମସ୍ତ ମୂଲ୍ୟ ₹ ରେ, କର ସହିତ · ଉପଲବ୍ଧତା ଅନୁସାରେ"
+    }
+  };
+
+  function setLang(lang){
+    if(!translations[lang]) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang][key];
+      if(typeof val === 'string') el.innerHTML = val;
+    });
+    document.querySelectorAll('.lang-toggle button').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+</script>
+
+</body>
+</html>
